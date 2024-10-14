@@ -1,4 +1,4 @@
-class HTMLNODE:
+class HTMLNode:
     def __init__(self, tag = None, value = None, children = None, props = None):
         self.tag = tag
         self.value = value
@@ -11,16 +11,15 @@ class HTMLNODE:
         htmlString = ""
         if self.props == None:
             return htmlString
-        for prop in self.props:
-            key, value = prop
+        for key, value in self.props.items():
             htmlString += f' {key}="{value}"'
         return htmlString
     
     def __repr__(self):
-        return f"HTMLNODE({self.tag}, {self.value}, {self.children}, {self.props})"
+        return f"HTMLNode({self.tag}, {self.value}, children: {self.children}, {self.props})"
     
 
-class LeafNode(HTMLNODE):
+class LeafNode(HTMLNode):
     def __init__(self, value, tag = None, props= None ):
         super().__init__(tag=tag, value=value, children = None,  props = props)
 
@@ -32,7 +31,7 @@ class LeafNode(HTMLNODE):
         self.new_props = self.props_to_html()
         return f"<{self.tag}{self.new_props}>{self.value}</{self.tag}>"
 
-class ParentNode(HTMLNODE):
+class ParentNode(HTMLNode):
     def __init__(self, children, tag=None, props=None):
         super().__init__(tag=tag, value=None, children= children, props=props )
     
