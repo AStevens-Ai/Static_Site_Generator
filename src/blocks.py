@@ -83,8 +83,15 @@ def markdown_to_html_node(markdown):
         if type == "heading":
             level = block.count('#')
             tag = f'h{level}'
+            block_node = ParentNode(children=[], tag=tag)
             content = block.lstrip('# ').strip()
-            block_node = LeafNode(value=content, tag=tag)
+    
+            inline_nodes = text_to_children(content)
+    
+            if isinstance(inline_nodes, list):
+                block_node.children.extend(inline_nodes)
+            else:
+                block_node.children.append(inline_nodes)
 
         elif type == "code":
             content = block.strip('`').strip()
@@ -92,7 +99,13 @@ def markdown_to_html_node(markdown):
 
         elif type == "quote":
             content = block.strip('> ').strip()
-            block_node = ParentNode(children=[LeafNode(value=content, tag='blockquote')], tag='blockquote')
+            block_node = ParentNode(children=[], tag='blockquote')
+            inline_nodes = text_to_children(content)
+
+            if isinstance(inline_nodes, list):
+                block_node.children.extend(inline_nodes)
+            else:
+                block_node.children.append(inline_nodes)
 
         elif type == "unordered_list":
             print(f"Processing unordered list block: {block}")

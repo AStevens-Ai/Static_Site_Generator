@@ -1,16 +1,32 @@
-# Welcome to My Static HTML Site Generator
+# Tolkien Fan Club
 
-Hello everyone! This is my static HTML site generator. It takes a Markdown file, much like this one, and creates a page out of it in static HTML!
+**I like Tolkien**. Read my [first post here](/majesty)
 
-## How to Use
+> All that is gold does not glitter
 
-1. Replace the root directories `/content` directory index.md file,  with a file ending in the extension `.md` that contains all the Markdown you’d like to render on the page.
-2. Simply run: `./main.sh` in the root directory.
+## Reasons I like Tolkien
 
-   
+* You can spend years studying the legendarium and still not understand its depths
+* It can be enjoyed by children and adults alike
+* Disney *didn't ruin it*
+* It created an entirely new genre of fantasy
 
-# Its that easy.
+## My favorite characters (in order)
 
-Feel free to modify it as you see fit! If you need any changes or additional sections, just let me know!
+1. Gandalf
+2. Bilbo
+3. Sam
+4. Glorfindel
+5. Galadriel
+6. Elrond
+7. Thorin
+8. Sauron
+9. Aragorn
 
-As always. See you Space Cowboy. ![See you Space Cowboy.](https://dotandline.net/wp-content/uploads/2018/04/1_58uZVuKlz4bhBJF1BL9qdA.jpeg)
+Here's what `elflang` looks like (the perfect coding language):
+
+```
+func main(){
+    fmt.Println("Hello, World!")
+}
+```
