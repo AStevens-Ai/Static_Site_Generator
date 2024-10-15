@@ -5,7 +5,7 @@ class HTMLNode:
         self.children = children
         self.props = props
     def to_html(self):
-        raise NotImplementedError()
+        raise NotImplementedError("Subclasses must implement this method.")
     
     def props_to_html(self):
         htmlString = ""
@@ -24,12 +24,10 @@ class LeafNode(HTMLNode):
         super().__init__(tag=tag, value=value, children = None,  props = props)
 
     def to_html(self):
-        if not self.value:
-            raise ValueError("error")
-        if self.tag == None:
-            return self.value
-        self.new_props = self.props_to_html()
-        return f"<{self.tag}{self.new_props}>{self.value}</{self.tag}>"
+        if self.tag is None:
+            return self.value or ""
+        props_html = self.props_to_html()
+        return f"<{self.tag}{props_html}>{self.value}</{self.tag}>"
 
 class ParentNode(HTMLNode):
     def __init__(self, children, tag=None, props=None):

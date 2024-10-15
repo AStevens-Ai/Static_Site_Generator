@@ -25,14 +25,14 @@ class TestTextNode(unittest.TestCase):
         self.assertNotEqual(node, node2)
 
     def test_eq_url(self):
-        node = TextNode("This is a text node", text_type_text, "https://www.boot.dev")
-        node2 = TextNode("This is a text node", text_type_text, "https://www.boot.dev")
+        node = TextNode("This is a text node", text_type_text, "https://www.icecream.com")
+        node2 = TextNode("This is a text node", text_type_text, "https://www.icecream.com")
         self.assertEqual(node, node2)
 
     def test_repr(self):
-        node = TextNode("This is a text node", text_type_text, "https://www.boot.dev")
+        node = TextNode("This is a text node", text_type_text, "https://www.icecream.com")
         self.assertEqual(
-            "TextNode(This is a text node, text, https://www.boot.dev)", repr(node)
+            "TextNode(This is a text node, text, https://www.icecream.com)", repr(node)
         )
 
 
@@ -44,13 +44,13 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
         self.assertEqual(html_node.value, "This is a text node")
 
     def test_image(self):
-        node = TextNode("This is an image", text_type_image, "https://www.boot.dev")
+        node = TextNode("This is an image", text_type_image, "https://www.icecream.com")
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, "img")
         self.assertEqual(html_node.value, "")
         self.assertEqual(
             html_node.props,
-            {"src": "https://www.boot.dev", "alt": "This is an image"},
+            {"src": "https://www.icecream.com", "alt": "This is an image"},
         )
 
     def test_bold(self):
