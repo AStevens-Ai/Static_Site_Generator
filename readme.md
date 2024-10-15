@@ -4,7 +4,7 @@ Hello everyone! This is my static HTML site generator. It takes a Markdown file,
 
 ## How to Use
 
-1. Replace the root directories `/content` directory index.md file,  with a file ending in the extension `.md` that contains all the Markdown you’d like to render on the page.
+1. Replace the root directories `/content` directory index.md file, or even add other directories/files  with a file ending in the extension `.md` that contains all the Markdown you’d like to render on the page.
 2. Simply run: `./main.sh` in the root directory.
 
    
